@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Suite">
+<groups>
+<run>
+<include name="smoke"></include>
+</run>
+</groups>
+  <test thread-count="1" parallel="tests" name="Test">
+    <classes>
+      <class name="Admin_Module.View_unit_TestNG"/>
+<class name="Manufacturer_module.Productadded_TestNG"></class>
+<class name="Retailer_Module.New_Order_testNG"></class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
