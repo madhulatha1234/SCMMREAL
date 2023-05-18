@@ -61,6 +61,7 @@ public class WebDriverUtility {
 	public void rightClick(WebDriver driver,WebElement element) {
 		Actions act=new Actions(driver);
 		act.contextClick(element).perform();
+		
 	}
 	public void enterKeypress(WebDriver driver) {
 		Actions act=new Actions(driver);
@@ -116,10 +117,11 @@ public class WebDriverUtility {
 		jse.executeScript("window.scrollBy(0,800)","");
 	}
 
-	public void scrollAction(WebDriver driver, WebElement element) {
+	public void scrollAction(WebDriver driver, WebElement element,int yy) {
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		int y = element.getLocation().getY();
 		jse.executeScript("window.scrollBy(0,"+y+")", element);
+		
 	}
 }
 

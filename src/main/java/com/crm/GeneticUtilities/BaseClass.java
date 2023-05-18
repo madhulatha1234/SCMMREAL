@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
-
+import com.mysql.cj.jdbc.Driver;
 import com.crm.POM.AdminloginPage;
 import com.crm.POM.ManufacturerLoginPage;
 import com.crm.POM.RetailerLoginpage;
@@ -25,15 +25,17 @@ public WebDriverUtility wu=new WebDriverUtility();
 public AdminloginPage ap;
 
 
-@BeforeSuite(groups= {"smoke","regression"})
+//@BeforeSuite(groups= {"smoke","regression"})
+@BeforeSuite
 public void configBS() throws Throwable {
 	du.connectToDB();
 	System.out.println("connect to database");
 }
 
-
+@Parameters("")
 //@Parameters("BROWSER")
-@BeforeClass(groups= {"smoke","regression"})
+//@BeforeClass(groups= {"smoke","regression"})
+@BeforeClass
 public void configBC() throws Throwable {
 	
 	String BROWSER = fu.readdatafromPropertyFile("browser");
@@ -53,7 +55,8 @@ public void configBC() throws Throwable {
 	driver.get(URL);
 	System.out.println("Launch the browser");
 }
-@BeforeMethod(groups= {"smoke","regression"})
+//@BeforeMethod(groups= {"smoke","regression"})
+@BeforeMethod
 public void congigBM() throws Throwable {
 String USERNAME = fu.readdatafromPropertyFile("username");	
 String PASSWORD = fu.readdatafromPropertyFile("password");
@@ -80,18 +83,22 @@ ap.admin(USERNAME, PASSWORD);
 System.out.println("login to application");
 }
 
-@AfterMethod(groups= {"smoke","regression"})
+//@AfterMethod(groups= {"smoke","regression"})
+
+@AfterMethod
 public void configAM() {
 	ap.loggout();
 	//System.out.println("logout from the application");
 	
 	
 }
-@AfterClass(groups= {"smoke","regression"})
+//@AfterClass(groups= {"smoke","regression"})
+@AfterClass
 public void configAC() {
 	System.out.println("close the browser");
 }
-@AfterSuite(groups= {"smoke","regression"})
+//@AfterSuite(groups= {"smoke","regression"})
+@AfterSuite
 public void configAS() throws Throwable {
 	du.closeDB();
 	System.out.println("disconnect to database");

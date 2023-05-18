@@ -23,6 +23,7 @@ public class Post_Order_POM {
 		String username = fis.readdatafromPropertyFile("username");
 		String password = fis.readdatafromPropertyFile("password");
 		driver=new FirefoxDriver();
+		
 		driver.get(url);
 		RetailerLoginpage rlp=new RetailerLoginpage(driver);
 		rlp.retailer(username);

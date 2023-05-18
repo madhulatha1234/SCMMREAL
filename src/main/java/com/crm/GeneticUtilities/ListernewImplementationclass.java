@@ -18,11 +18,20 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ListernewImplementationclass implements ITestListener {
+	//class
 ExtentReports report;
+//create BDD style test
+//class
 ExtentTest test;
+
+
+ 
+   
 	public void onTestStart(ITestResult result) {
 		//Execution start from here
+		
 		String methodname = result.getMethod().getMethodName();
+		
 		 test = report.createTest(methodname);
 		Reporter.log(methodname+"------> Testscript execution started");
 		
@@ -67,7 +76,9 @@ Reporter.log("test script execution failed");
 			}
 
 	public void onStart(ITestContext context) {
+		
 		ExtentSparkReporter htmlreport=new ExtentSparkReporter("./ExtendReport/report.html");
+		
 		htmlreport.config().setDocumentTitle("SDET-45 Extend Report");
 		htmlreport.config().setTheme(Theme.DARK);
 		htmlreport.config().setReportName("SCM report");
